@@ -1425,18 +1425,15 @@
   <script>
     function showPage(id, btn) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-      if (btn && btn.classList && btn.classList.contains('demo-tab')) {
-        btn.classList.add('active');
-      } else {
-        const tab = Array.from(document.querySelectorAll('.demo-tab')).find(t => (t.getAttribute('onclick') || '').includes("'" + id + "'"));
-        if (tab) tab.classList.add('active');
-      }
-      window.scrollTo({ top: 60, behavior: 'smooth' });
+      closeNav();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     function toggleNav() {
       document.getElementById('nav-links').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('nav-links').classList.remove('open');
     }
     function filterNoticias(category, btn) {
       document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
