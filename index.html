@@ -503,6 +503,11 @@
       .planes-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
+    /* ── RESPONSIVE GRIDS ── */
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; max-width: 1100px; margin: 0 auto; }
+    .grid-junta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+
     .nav-toggle {
       display: none;
       background: none;
@@ -518,6 +523,11 @@
       .hero h1 { font-size: 1.9rem; }
       .stats-inner { gap: 28px; }
       .footer-grid { grid-template-columns: 1fr; }
+      .grid-2col { grid-template-columns: 1fr; gap: 32px; }
+      .grid-junta { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-imagen { min-height: 220px !important; }
+      .planes-grid { grid-template-columns: 1fr; }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -894,7 +904,7 @@
     </div>
 
     <section style="background:#fff;">
-      <div class="beneficios-empresa">
+      <div class="beneficios-empresa grid-2col" style="max-width:none; gap:56px;">
         <div class="beneficios-empresa-texto">
           <h2>¿Por que colaborar con la AMPA?</h2>
           <p>La AMPA del Colegio Calasancio es un punto de encuentro activo para cientos de familias del barrio de Salamanca. Fundada en 1977, es una de las asociaciones de madres y padres con mayor trayectoria de Madrid.</p>
@@ -999,7 +1009,7 @@
     </div>
 
     <section style="background:#fff;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; max-width:1100px; margin:0 auto;">
+      <div class="grid-2col">
         <div>
           <p class="section-label" style="text-align:left;">Nuestra mision</p>
           <h2 style="font-size:1.7rem; font-weight:800; color:var(--granate); margin-bottom:24px;">5 objetivos que nos guian</h2>
@@ -1035,7 +1045,7 @@
       <p class="section-label">Elegida democraticamente</p>
       <h2 class="section-title">Junta Directiva</h2>
       <div style="max-width:700px; margin:0 auto; background:#fff; border-radius:16px; padding:40px; box-shadow:0 2px 12px rgba(0,0,0,.07); border-top: 4px solid var(--granate);">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; margin-bottom:28px;">
+        <div class="grid-junta">
           <div><strong style="color:var(--granate);">Presidenta:</strong><br>Maria Jesus Caceres Canales</div>
           <div><strong style="color:var(--granate);">Vicepresidente:</strong><br>Jose Manuel Ramos</div>
           <div><strong style="color:var(--granate);">Secretaria:</strong><br>Rosa Ma Romero Jimenez</div>
@@ -1196,7 +1206,7 @@
           <p class="section-label" style="text-align:left;">Envíanos un mensaje</p>
           <h2 style="font-size:1.6rem; font-weight:800; color:var(--granate); margin-bottom:28px;">Formulario de contacto</h2>
           <form onsubmit="return false;">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px;">
+            <div class="form-row">
               <div class="form-group">
                 <label>Nombre</label>
                 <input type="text" placeholder="Tu nombre">
