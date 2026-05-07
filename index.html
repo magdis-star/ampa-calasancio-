@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMPA Calasancio — Asociación de Familias del Colegio Calasancio</title>
+  <meta name="description" content="La AMPA del Colegio Calasancio representa a las familias del colegio desde 1977. Únete y forma parte de una comunidad activa que mejora la educación de nuestros hijos." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --granate:        #8b1a1a;
+      --granate-oscuro: #6b1010;
+      --dorado:         #c9a84c;
+      --dorado-claro:   #e2c06a;
+      --dorado-bg:      #f5edda;
+      --dorado-suave:   #f9f3e6;
+      --gris-claro:     #f7f7f7;
+      --gris-texto:     #555;
+      --blanco:         #fff;
+      --radio:          10px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.10);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo .escudo {
+      width: 48px;
+      height: 48px;
+      background: var(--dorado);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
+      border: 2px solid var(--granate);
+    }
+    .nav-logo span {
+      color: var(--granate);
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #444;
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: .92rem;
+      font-weight: 500;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover { background: var(--dorado-suave); color: var(--granate); }
+    .nav-links .btn-nav {
+      background: var(--granate);
+      color: #fff !important;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: 8px;
+      margin-left: 8px;
+    }
+    .nav-links .btn-nav:hover { background: var(--granate-oscuro) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dorado-bg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 520px;
+    }
+    .hero-content {
+      padding: 72px 6% 72px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--granate);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--granate);
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--dorado); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--granate);
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: var(--radio);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 14px rgba(139,26,26,.25);
+    }
+    .btn-primary:hover { background: var(--granate-oscuro); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--granate);
+      border: 2px solid var(--granate);
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radio);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all .2s;
+    }
+    .btn-secondary:hover { background: var(--granate); color: #fff; }
+
+    .hero-imagen {
+      background: rgba(139,26,26,.04);
+      border: 2px dashed var(--dorado-claro);
+      margin: 40px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--gris-texto);
+      font-size: .9rem;
+      text-align: center;
+      padding: 40px;
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-imagen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://static.wixstatic.com/media/...') center/cover;
+      opacity: .2;
+    }
+    .hero-imagen .icon { font-size: 4rem; opacity: .6; }
+    .hero-imagen p { max-width: 200px; line-height: 1.5; }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--dorado);
+      padding: 32px 5%;
+    }
+    .stats-inner {
+      display: flex;
+      justify-content: center;
+      gap: 72px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--granate);
+    }
+    .stat-label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(0,0,0,.55);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    /* ── SECCIONES GENÉRICAS ── */
+    section { padding: 72px 5%; }
+    .section-label {
+      text-align: center;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--granate);
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--gris-texto);
+      max-width: 560px;
+      margin: 0 auto 52px;
+      font-size: 1.02rem;
+    }
+
+    /* ── BENEFICIOS SOCIOS ── */
+    .beneficios { background: var(--gris-claro); }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px 26px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-top: 3px solid var(--dorado);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--dorado-bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      border: 1px solid var(--dorado-claro);
+    }
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--granate); margin-bottom: 8px; }
+    .card p { font-size: .92rem; color: var(--gris-texto); }
+
+    /* ── CTA SOCIO ── */
+    .cta-socio {
+      background: var(--dorado-bg);
+      text-align: center;
+      border-top: 1px solid var(--dorado-claro);
+    }
+    .precio-tag {
+      display: inline-block;
+      background: var(--granate);
+      border-radius: 14px;
+      padding: 20px 44px;
+      margin-bottom: 32px;
+      color: #fff;
+    }
+    .precio-tag .precio { font-size: 3rem; font-weight: 900; color: var(--dorado-claro); }
+    .precio-tag .periodo { font-size: .9rem; opacity: .8; }
+
+    /* ── PATROCINADORES ── */
+    .beneficios-empresa {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+    .beneficios-empresa-texto h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--granate);
+      margin-bottom: 16px;
+    }
+    .beneficios-empresa-texto p {
+      color: var(--gris-texto);
+      margin-bottom: 24px;
+      font-size: 1rem;
+    }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .95rem;
+      color: #333;
+    }
+    .check-dot {
+      width: 22px;
+      height: 22px;
+      background: var(--granate);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .stats-box {
+      background: var(--dorado-bg);
+      border: 1px solid var(--dorado-claro);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    .stats-box .stat-item { margin-bottom: 24px; }
+    .stats-box .stat-item:last-child { margin-bottom: 0; }
+    .stats-box .num { font-size: 2.2rem; font-weight: 900; color: var(--granate); }
+    .stats-box .lbl { font-size: .88rem; color: var(--gris-texto); }
+    .planes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .plan {
+      border: 2px solid #e8e0d0;
+      border-radius: 14px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .plan:hover { border-color: var(--dorado); box-shadow: 0 6px 20px rgba(201,168,76,.15); }
+    .plan.destacado {
+      border-color: var(--granate);
+      background: linear-gradient(180deg, #fff5f5 0%, #fff 100%);
+      box-shadow: 0 6px 24px rgba(139,26,26,.12);
+      position: relative;
+    }
+    .plan-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--granate);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .plan-nombre { font-size: 1.1rem; font-weight: 700; color: var(--granate); margin-bottom: 8px; }
+    .plan-precio { font-size: 2rem; font-weight: 900; color: var(--dorado); margin-bottom: 4px; }
+    .plan-periodo { font-size: .85rem; color: var(--gris-texto); margin-bottom: 20px; }
+    .plan-features { list-style: none; font-size: .88rem; color: #444; text-align: left; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+    .plan-features li { display: flex; gap: 8px; align-items: flex-start; }
+    .plan-features .dot { color: var(--granate); font-weight: 900; font-size: 1rem; line-height: 1.4; }
+    .btn-plan {
+      display: block;
+      background: var(--dorado);
+      color: #fff;
+      border-radius: 8px;
+      padding: 11px 20px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: background .2s;
+    }
+    .btn-plan:hover { background: var(--dorado-claro); }
+    .plan.destacado .btn-plan { background: var(--granate); }
+    .plan.destacado .btn-plan:hover { background: var(--granate-oscuro); }
+
+    /* ── LOGOS ── */
+    .logos-section { background: var(--gris-claro); padding: 52px 5%; text-align: center; }
+    .logos-section h3 { font-size: .8rem; color: var(--gris-texto); font-weight: 700; margin-bottom: 32px; letter-spacing: 1px; text-transform: uppercase; }
+    .logos-grid { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .logo-placeholder {
+      width: 140px;
+      height: 64px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbb;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    /* ── ACTIVIDADES ── */
+    .actividades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .actividad {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      border: 1px solid #eeebe4;
+    }
+    .actividad-img {
+      height: 150px;
+      background: linear-gradient(135deg, var(--granate) 0%, var(--dorado) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .actividad-body { padding: 20px; }
+    .actividad-fecha { font-size: .78rem; font-weight: 700; color: var(--dorado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .actividad-body h3 { font-size: 1rem; font-weight: 700; color: var(--granate); margin-bottom: 6px; }
+    .actividad-body p { font-size: .88rem; color: var(--gris-texto); }
+
+    /* ── CONFIANZA ── */
+    .confianza-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+    .confianza-item {
+      padding: 28px 20px;
+      border: 1px solid #e8e0d0;
+      border-radius: 12px;
+      background: var(--dorado-suave);
+    }
+    .confianza-item .c-icon { font-size: 2rem; margin-bottom: 12px; }
+    .confianza-item h4 { font-size: .95rem; font-weight: 700; color: var(--granate); margin-bottom: 6px; }
+    .confianza-item p { font-size: .85rem; color: var(--gris-texto); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a1a;
+      color: rgba(255,255,255,.7);
+      padding: 52px 5% 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    .footer-brand p { font-size: .88rem; line-height: 1.8; margin-top: 12px; }
+    .footer-brand .logo-txt { font-size: 1.1rem; font-weight: 800; color: var(--dorado-claro); }
+    footer h4 { color: #fff; font-size: .9rem; font-weight: 700; margin-bottom: 16px; letter-spacing: .3px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    footer ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .87rem; transition: color .2s; }
+    footer ul li a:hover { color: var(--dorado-claro); }
+    .legal-datos {
+      background: rgba(255,255,255,.05);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 24px;
+      line-height: 1.9;
+    }
+    .footer-legal {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .8rem;
+    }
+    .footer-legal a { color: rgba(255,255,255,.45); text-decoration: none; margin-left: 16px; }
+    .footer-legal a:hover { color: var(--dorado-claro); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-imagen { min-height: 220px; }
+      .beneficios-empresa { grid-template-columns: 1fr; gap: 28px; }
+      .planes-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 1.9rem; }
+      .stats-inner { gap: 28px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── DEMO NAVIGATION ── */
+    .demo-banner {
+      background: #fff3cd;
+      border-bottom: 2px solid var(--dorado);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: .85rem;
+      color: #7a5c00;
+      font-weight: 600;
+    }
+    .demo-tabs {
+      background: #f0ebe0;
+      border-bottom: 1px solid #ddd6c4;
+      display: flex;
+      gap: 4px;
+      padding: 10px 5%;
+      flex-wrap: wrap;
+    }
+    .demo-tab {
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--granate);
+      border: none;
+      background: transparent;
+      transition: background .15s;
+    }
+    .demo-tab:hover { background: rgba(139,26,26,.08); }
+    .demo-tab.active { background: var(--granate); color: #fff; }
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── FILTROS NOTICIAS ── */
+    .filtros { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center; }
+    .filtro-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1.5px solid var(--dorado-claro);
+      background: #fff;
+      color: var(--granate);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filtro-btn:hover, .filtro-btn.active { background: var(--granate); color: #fff; border-color: var(--granate); }
+
+    /* ── NOTICIA CARD ── */
+    .noticia-item {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      border: 1px solid #eeebe4;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .noticia-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .noticia-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .noticia-body { padding: 20px; }
+    .noticia-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+    .noticia-cat {
+      font-size: .72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      background: var(--dorado-bg); color: var(--granate);
+      padding: 3px 10px; border-radius: 12px; border: 1px solid var(--dorado-claro);
+    }
+    .noticia-fecha-small { font-size: .78rem; color: var(--gris-texto); }
+    .noticia-body h3 { font-size: 1rem; font-weight: 700; color: var(--granate); margin-bottom: 8px; line-height: 1.4; }
+    .noticia-body p { font-size: .88rem; color: var(--gris-texto); margin-bottom: 14px; }
+    .noticia-body a { font-size: .85rem; font-weight: 700; color: var(--granate); text-decoration: none; }
+    .noticia-body a:hover { text-decoration: underline; }
+
+    /* ── EVENTO CARDS ── */
+    .evento {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07); border: 1px solid #eeebe4;
+      display: flex; flex-direction: column;
+    }
+    .evento-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
+    .evento-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .evento-fecha { font-size: .78rem; font-weight: 700; color: var(--dorado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .evento-body h3 { font-size: 1rem; font-weight: 700; color: var(--granate); margin-bottom: 8px; }
+    .evento-body p { font-size: .88rem; color: var(--gris-texto); flex: 1; margin-bottom: 16px; }
+    .btn-evento {
+      display: inline-block; background: var(--dorado-bg); color: var(--granate);
+      border: 1.5px solid var(--dorado-claro); border-radius: 7px;
+      padding: 8px 16px; font-size: .85rem; font-weight: 700; text-decoration: none;
+      transition: all .2s; width: fit-content;
+    }
+    .btn-evento:hover { background: var(--granate); color: #fff; border-color: var(--granate); }
+
+    /* ── CONTACTO ── */
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; max-width: 1000px; margin: 0 auto; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .form-group label { font-size: .88rem; font-weight: 600; color: #333; }
+    .form-group input, .form-group textarea {
+      padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px;
+      font-size: .93rem; font-family: inherit; transition: border-color .2s; background: #fff;
+    }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--dorado); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .contacto-info { display: flex; flex-direction: column; gap: 14px; }
+    .contacto-dato {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 16px; background: var(--dorado-suave);
+      border-radius: 10px; border: 1px solid var(--dorado-claro);
+    }
+    .contacto-dato .dato-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .contacto-dato strong { display: block; color: var(--granate); font-size: .88rem; margin-bottom: 2px; }
+    .contacto-dato span { color: #555; font-size: .88rem; line-height: 1.5; }
+    @media (max-width: 900px) { .contacto-grid { grid-template-columns: 1fr; } }
+
+    /* ── DOCUMENTOS ── */
+    .doc-btn {
+      display: flex; align-items: center; gap: 14px; background: #fff;
+      border: 1.5px solid #e0d8c8; border-radius: 12px; padding: 18px 24px;
+      text-decoration: none; color: #333; transition: all .2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05); margin-bottom: 12px;
+    }
+    .doc-btn:hover { border-color: var(--granate); box-shadow: 0 4px 16px rgba(139,26,26,.12); transform: translateY(-2px); }
+    .doc-btn .doc-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .doc-btn strong { display: block; font-weight: 700; color: var(--granate); font-size: .95rem; margin-bottom: 2px; }
+    .doc-btn span { font-size: .82rem; color: var(--gris-texto); }
+    .doc-btn .doc-arrow { margin-left: auto; font-size: 1.1rem; color: var(--dorado); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="demo-banner">
+    Prototipo de mejoras — AMPA Calasancio | Borrador visual para revision interna
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
+      <img src="images/LOGO_AmpaCalasacio.png" alt="AMPA Calasancio" style="height:72px; width:auto;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('sobre'); return false;">Quiénes somos</a></li>
+      <li><a href="#" onclick="showPage('actividades'); return false;">Actividades</a></li>
+      <li><a href="#" onclick="showPage('noticias'); return false;">Noticias</a></li>
+      <li><a href="#" onclick="showPage('eventos'); return false;">Eventos</a></li>
+      <li><a href="#" onclick="showPage('patrocinadores'); return false;">Colabora</a></li>
+      <li><a href="#" onclick="showPage('documentos'); return false;">Documentos</a></li>
+      <li><a href="#" onclick="showPage('contacto'); return false;">Contacto</a></li>
+      <li><a href="#" onclick="showPage('socios'); return false;" class="btn-nav">Hazte socio/a</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ══════════════════ PORTADA ══════════════════ -->
+  <div id="home" class="page active">
+
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Colegio Calasancio · Madrid</div>
+        <h1>La asociación de familias <span>que trabaja por tus hijos</span></h1>
+        <p class="hero-sub">Somos la voz de las familias del Colegio Calasancio. Organizamos actividades, apoyamos la educación y creamos comunidad. Únete y marca la diferencia.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary">Hazte socio/a — desde 30 €/año</a>
+          <a href="#" class="btn-secondary">Conoce la AMPA</a>
+        </div>
+      </div>
+      <div class="hero-imagen" style="background: url('images/colegio_calasancio_02.jpg') center/cover; border:none; margin:0; border-radius:0; min-height:520px;"></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stats-inner">
+        <div class="stat">
+          <span class="stat-num">+25</span>
+          <span class="stat-label">Años de historia</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+300</span>
+          <span class="stat-label">Familias socias</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+40</span>
+          <span class="stat-label">Actividades al año</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+15</span>
+          <span class="stat-label">Empresas colaboradoras</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios">
+      <p class="section-label">Para las familias</p>
+      <h2 class="section-title">¿Que obtienes al hacerte socio/a?</h2>
+      <p class="section-sub">Tu cuota anual financia actividades, servicios y la representacion de tu familia ante el colegio.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🗣️</div>
+          <h3>Voz y representacion</h3>
+          <p>Participa en las decisiones que afectan a la educacion de tus hijos. La AMPA canaliza tus iniciativas y sugerencias ante el centro.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🥋</div>
+          <h3>Actividades extraescolares</h3>
+          <p>Acceso a Judo Calasancio (desde 200 €/curso) y Ajedrez Calasancio (desde 44 €/bimestre), y futuras actividades organizadas por la AMPA.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Red de familias</h3>
+          <p>Conecta con otras familias del colegio, comparte experiencias y forma parte de una comunidad activa desde hace mas de 45 anos.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3>Informacion directa</h3>
+          <p>Recibe comunicaciones sobre novedades del colegio, propuestas educativas y eventos antes que nadie a traves del boletin de socios.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICIAS RECIENTES -->
+    <section style="background:#fff; padding: 72px 5%;">
+      <p class="section-label">Siempre activos</p>
+      <h2 class="section-title">Ultimas noticias</h2>
+      <p class="section-sub">Lo que ha pasado recientemente en la comunidad del Colegio Calasancio.</p>
+      <div class="actividades-grid">
+        <div class="actividad">
+          <div class="actividad-img">🥋</div>
+          <div class="actividad-body">
+            <div class="actividad-fecha">16 Marzo 2026</div>
+            <h3>Gran participacion en Juegos Municipales de Judo</h3>
+            <p>Nuestros chicos y chicas volvieron a darlo todo en los Juegos Municipales.</p>
+          </div>
+        </div>
+        <div class="actividad">
+          <div class="actividad-img">🏫</div>
+          <div class="actividad-body">
+            <div class="actividad-fecha">23 Febrero 2026</div>
+            <h3>Jornada de Puertas Abiertas 2026</h3>
+            <p>La AMPA estuvo presente en la jornada de puertas abiertas del colegio.</p>
+          </div>
+        </div>
+        <div class="actividad">
+          <div class="actividad-img">⚽</div>
+          <div class="actividad-body">
+            <div class="actividad-fecha">18 Septiembre 2025</div>
+            <h3>Fiesta Deportiva AMPA 2025</h3>
+            <p>Un ano mas, la fiesta deportiva reunio a toda la comunidad escolar.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="#" class="btn-secondary">Ver todas las noticias</a>
+      </div>
+    </section>
+
+    <!-- SEÑALES DE CONFIANZA -->
+    <section style="background: var(--gris-claro); padding:72px 5%;">
+      <p class="section-label">Transparencia y legitimidad</p>
+      <h2 class="section-title">Una asociacion de confianza</h2>
+      <p class="section-sub">La AMPA Calasancio lleva mas de 45 anos representando a las familias del colegio con total transparencia.</p>
+      <div class="confianza-grid">
+        <div class="confianza-item">
+          <div class="c-icon">📜</div>
+          <h4>Legalmente constituida</h4>
+          <p>Inscrita en el Registro de Asociaciones de la Comunidad de Madrid con el Num. 2346.</p>
+        </div>
+        <div class="confianza-item">
+          <div class="c-icon">📅</div>
+          <h4>Fundada en 1977</h4>
+          <p>Mas de 45 anos trabajando por la comunidad educativa del Colegio Calasancio.</p>
+        </div>
+        <div class="confianza-item">
+          <div class="c-icon">👥</div>
+          <h4>Junta directiva elegida</h4>
+          <p>Los representantes son elegidos democraticamente por las familias socias cada ano.</p>
+        </div>
+        <div class="confianza-item">
+          <div class="c-icon">🤝</div>
+          <h4>Colaboramos con el centro</h4>
+          <p>Trabajamos en coordinacion permanente con la direccion del Colegio Calasancio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL PORTADA -->
+    <section class="cta-socio">
+      <p class="section-label">Unete hoy</p>
+      <h2 class="section-title">Forma parte de la AMPA Calasancio</h2>
+      <p class="section-sub">Mas de 45 anos de historia nos avalan. Unete a la asociacion que representa a las familias del Colegio Calasancio.</p>
+      <div class="precio-tag">
+        <div class="precio">[Cuota]€</div>
+        <div class="periodo">por familia y ano escolar</div>
+      </div>
+      <br>
+      <a href="#" class="btn-primary">Hazte socio/a ahora</a>
+    </section>
+
+  </div><!-- /home -->
+
+
+  <!-- ══════════════════ HAZTE SOCIO ══════════════════ -->
+  <div id="socios" class="page">
+
+    <div style="background: var(--dorado-bg); padding: 72px 5%; text-align:center; border-bottom: 1px solid var(--dorado-claro);">
+      <div class="hero-badge" style="margin:0 auto 20px;">Unete a la AMPA</div>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--granate); margin-bottom:16px;">Hazte socio/a de la AMPA Calasancio</h1>
+      <p style="font-size:1.05rem; color:#555; max-width:560px; margin:0 auto;">Tu cuota es una inversion directa en la educacion y bienestar de tus hijos. Desde [cuota] € al ano.</p>
+    </div>
+
+    <section style="background: var(--gris-claro);">
+      <p class="section-label">Simple y rapido</p>
+      <h2 class="section-title">¿Como me hago socio/a?</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:24px; max-width:900px; margin:0 auto;">
+        <div class="card" style="text-align:center; padding:36px 24px; border-top-color: var(--granate);">
+          <div style="width:52px;height:52px;background:var(--granate);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:900;margin:0 auto 16px;">1</div>
+          <h3>Rellena el formulario</h3>
+          <p>Completa tus datos y los de tu hijo/a en el formulario de afiliacion.</p>
+        </div>
+        <div class="card" style="text-align:center; padding:36px 24px; border-top-color: var(--granate);">
+          <div style="width:52px;height:52px;background:var(--granate);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:900;margin:0 auto 16px;">2</div>
+          <h3>Realiza el pago</h3>
+          <p>Abona la cuota anual por transferencia o en las formas indicadas.</p>
+        </div>
+        <div class="card" style="text-align:center; padding:36px 24px; border-top-color: var(--dorado);">
+          <div style="width:52px;height:52px;background:var(--dorado);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:900;margin:0 auto 16px;">3</div>
+          <h3>Ya eres socio/a</h3>
+          <p>Recibiras confirmacion y acceso a todos los beneficios de la AMPA.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-socio">
+      <p class="section-label">Sin complicaciones</p>
+      <h2 class="section-title">Unete a la AMPA Calasancio</h2>
+      <p class="section-sub">Formada en 1977 e inscrita con el Num. 2346 del Registro de Asociaciones de Madrid. Una asociacion con historia y futuro.</p>
+      <div class="precio-tag">
+        <div class="precio">[Cuota] €</div>
+        <div class="periodo">por familia y ano escolar</div>
+      </div>
+      <br>
+      <a href="#" class="btn-primary">Formulario de afiliacion</a>
+    </section>
+
+  </div><!-- /socios -->
+
+
+  <!-- ══════════════════ PATROCINADORES ══════════════════ -->
+  <div id="patrocinadores" class="page">
+
+    <div style="background: var(--granate); color:#fff; padding: 72px 5%; text-align:center;">
+      <div class="hero-badge" style="background:var(--dorado); color:#fff; margin:0 auto 20px;">Empresas y organizaciones</div>
+      <h1 style="font-size:2.4rem; font-weight:800; margin-bottom:16px;">Colabora con la AMPA Calasancio</h1>
+      <p style="font-size:1.05rem; opacity:.85; max-width:600px; margin:0 auto 32px;">Conecta tu marca con una comunidad con mas de 45 anos de historia en el barrio de Salamanca de Madrid. Una colaboracion que genera impacto real y visibilidad local.</p>
+      <a href="mailto:presidencia@ampacalasancio.com" class="btn-primary" style="background:#fff; color:var(--granate); display:inline-block;">Solicitar informacion</a>
+    </div>
+
+    <section style="background:#fff;">
+      <div class="beneficios-empresa">
+        <div class="beneficios-empresa-texto">
+          <h2>¿Por que colaborar con la AMPA?</h2>
+          <p>La AMPA del Colegio Calasancio es un punto de encuentro activo para cientos de familias del barrio de Salamanca. Fundada en 1977, es una de las asociaciones de madres y padres con mayor trayectoria de Madrid.</p>
+          <ul class="check-list">
+            <li><span class="check-dot">✓</span> Acceso a una comunidad activa de familias del barrio de Salamanca</li>
+            <li><span class="check-dot">✓</span> Presencia en eventos escolares con alta participacion</li>
+            <li><span class="check-dot">✓</span> Visibilidad en web, redes sociales e Instagram</li>
+            <li><span class="check-dot">✓</span> Inclusion en comunicaciones y boletin a familias socias</li>
+            <li><span class="check-dot">✓</span> Logo y mencion en materiales de la AMPA</li>
+            <li><span class="check-dot">✓</span> Imagen de marca vinculada a educacion y comunidad</li>
+          </ul>
+        </div>
+        <div class="stats-box">
+          <div class="stat-item">
+            <div class="num">1977</div>
+            <div class="lbl">Ano de fundacion</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">+45</div>
+            <div class="lbl">Anos de presencia en el barrio</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">Num. 2346</div>
+            <div class="lbl">Registro de Asociaciones de Madrid</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">Salamanca</div>
+            <div class="lbl">Barrio de Madrid · C. Conde de Peñalver, 51</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="logos-section">
+      <h3>Empresas colaboradoras</h3>
+      <div class="logos-grid">
+        <div class="logo-placeholder">Tu empresa</div>
+        <div class="logo-placeholder">Tu empresa</div>
+        <div class="logo-placeholder">Tu empresa</div>
+        <div class="logo-placeholder">Tu empresa</div>
+        <div class="logo-placeholder">Tu empresa</div>
+      </div>
+    </div>
+
+    <section style="background: var(--dorado-bg); text-align:center; border-top: 1px solid var(--dorado-claro);">
+      <p class="section-label">Hablemos</p>
+      <h2 class="section-title">¿Tienes preguntas?</h2>
+      <p class="section-sub">Cuentanos tu empresa y que tipo de colaboracion te interesa. Te respondemos en menos de 48 horas.</p>
+      <a href="mailto:presidencia@ampacalasancio.com" class="btn-primary" style="display:inline-block;">presidencia@ampacalasancio.com</a>
+    </section>
+
+  </div><!-- /patrocinadores -->
+
+
+  <!-- ══════════════════ ACTIVIDADES ══════════════════ -->
+  <div id="actividades" class="page">
+
+    <div style="background: var(--dorado-bg); padding: 72px 5%; text-align:center; border-bottom: 1px solid var(--dorado-claro);">
+      <div class="hero-badge" style="margin:0 auto 20px;">Curso 2025-2026</div>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--granate); margin-bottom:16px;">Actividades extraescolares</h1>
+      <p style="font-size:1.05rem; color:#555; max-width:560px; margin:0 auto;">Organizadas por la AMPA para todos los alumnos del Colegio Calasancio.</p>
+    </div>
+
+    <section style="background:#fff;">
+      <div class="cards">
+        <div class="card" style="padding:40px 32px;">
+          <div class="card-icon" style="font-size:2rem; width:64px; height:64px;">🥋</div>
+          <h3 style="font-size:1.3rem; margin-bottom:12px;">Judo Calasancio</h3>
+          <p style="margin-bottom:16px;">Actividad deportiva para alumnos de todas las edades. Desarrolla disciplina, concentracion y valores.</p>
+          <p style="font-weight:700; color:var(--granate); margin-bottom:20px;">Desde 200 € / curso</p>
+          <a href="#" class="btn-primary">Mas información</a>
+        </div>
+        <div class="card" style="padding:40px 32px;">
+          <div class="card-icon" style="font-size:2rem; width:64px; height:64px;">♟️</div>
+          <h3 style="font-size:1.3rem; margin-bottom:12px;">Ajedrez Calasancio</h3>
+          <p style="margin-bottom:16px;">Aprende a pensar estrategicamente. El ajedrez mejora la concentracion y el razonamiento logico.</p>
+          <p style="font-weight:700; color:var(--granate); margin-bottom:20px;">Desde 44 € / bimestre</p>
+          <a href="#" class="btn-primary">Mas información</a>
+        </div>
+        <div class="card" style="padding:40px 32px; border-top-color: var(--dorado);">
+          <div class="card-icon" style="font-size:2rem; width:64px; height:64px;">🏓</div>
+          <h3 style="font-size:1.3rem; margin-bottom:12px;">Ping Pong Calasancio</h3>
+          <p style="margin-bottom:16px;">Nueva actividad para el próximo curso. El tenis de mesa desarrolla los reflejos, la coordinación y la concentración.</p>
+          <p style="font-weight:700; color:var(--granate); margin-bottom:8px;">Precio por confirmar</p>
+          <p style="font-size:.85rem; color:var(--dorado); font-weight:600; margin-bottom:20px;">⭐ Nuevo — Curso 2026-2027</p>
+          <a href="mailto:secretaria@ampacalasancio.com" class="btn-primary">Más información</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /actividades -->
+
+
+  <!-- ══════════════════ SOBRE NOSOTROS ══════════════════ -->
+  <div id="sobre" class="page">
+
+    <div style="background: var(--dorado-bg); padding: 72px 5%; text-align:center; border-bottom: 1px solid var(--dorado-claro);">
+      <div class="hero-badge" style="margin:0 auto 20px;">AMPA Calasancio</div>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--granate); margin-bottom:16px;">Quienes Somos</h1>
+      <p style="font-size:1.05rem; color:#555; max-width:640px; margin:0 auto;">La AMPA es la Asociacion de madres y padres establecida en 1977 dentro del Colegio Calasancio, formada por familias de alumnos que se unen voluntariamente para alcanzar los objetivos establecidos en Estatutos.</p>
+    </div>
+
+    <section style="background:#fff;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; max-width:1100px; margin:0 auto;">
+        <div>
+          <p class="section-label" style="text-align:left;">Nuestra mision</p>
+          <h2 style="font-size:1.7rem; font-weight:800; color:var(--granate); margin-bottom:24px;">5 objetivos que nos guian</h2>
+          <ul class="check-list">
+            <li><span class="check-dot">1</span> Sensibilizar y orientar a las madres y padres sobre su responsabilidad como primeros educadores.</li>
+            <li><span class="check-dot">2</span> Canalizar iniciativas y atender las sugerencias de las familias.</li>
+            <li><span class="check-dot">3</span> Colaborar en las labores complementarias (culturales, deportivas, sociales).</li>
+            <li><span class="check-dot">4</span> Facilitar apoyo economico para actividades academicas y extra-academicas.</li>
+            <li><span class="check-dot">5</span> Fomentar el desarrollo integral de la personalidad de los alumnos.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="section-label" style="text-align:left;">Datos legales</p>
+          <h2 style="font-size:1.7rem; font-weight:800; color:var(--granate); margin-bottom:24px;">Transparencia total</h2>
+          <div class="confianza-item" style="text-align:left; margin-bottom:12px;">
+            <strong style="color:var(--granate);">Fundacion:</strong> 1977 (mas de 45 anos de historia)
+          </div>
+          <div class="confianza-item" style="text-align:left; margin-bottom:12px;">
+            <strong style="color:var(--granate);">Registro:</strong> Num. 2346 del Registro de Asociaciones de la Comunidad de Madrid
+          </div>
+          <div class="confianza-item" style="text-align:left; margin-bottom:12px;">
+            <strong style="color:var(--granate);">Domicilio:</strong> Calle Conde de Peñalver, 51, 28006 Madrid
+          </div>
+          <div class="confianza-item" style="text-align:left;">
+            <strong style="color:var(--granate);">Contacto:</strong> secretaria@ampacalasancio.com
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUNTA DIRECTIVA -->
+    <section style="background:var(--gris-claro);">
+      <p class="section-label">Elegida democraticamente</p>
+      <h2 class="section-title">Junta Directiva</h2>
+      <div style="max-width:700px; margin:0 auto; background:#fff; border-radius:16px; padding:40px; box-shadow:0 2px 12px rgba(0,0,0,.07); border-top: 4px solid var(--granate);">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; margin-bottom:28px;">
+          <div><strong style="color:var(--granate);">Presidenta:</strong><br>Maria Jesus Caceres Canales</div>
+          <div><strong style="color:var(--granate);">Vicepresidente:</strong><br>Jose Manuel Ramos</div>
+          <div><strong style="color:var(--granate);">Secretaria:</strong><br>Rosa Ma Romero Jimenez</div>
+          <div><strong style="color:var(--granate);">Tesorera:</strong><br>Noemí García Gutiérrez</div>
+        </div>
+        <p style="font-weight:700; color:var(--granate); margin-bottom:12px; font-size:.9rem; text-transform:uppercase; letter-spacing:.5px;">Vocales</p>
+        <p style="color:#555; font-size:.92rem; line-height:2;">Ma Luisa Bejarano Herrera · Álvaro Rey Guarnido · Santiago Martinez Sierra · Fernando Lopez Moreno · Victoria Zurita</p>
+      </div>
+    </section>
+
+  </div><!-- /sobre -->
+
+
+  <!-- ══════════════════ NOTICIAS ══════════════════ -->
+  <div id="noticias" class="page">
+
+    <div style="background: var(--dorado-bg); padding: 72px 5%; text-align:center; border-bottom: 1px solid var(--dorado-claro);">
+      <div class="hero-badge" style="margin:0 auto 20px;">Comunidad Calasancio</div>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--granate); margin-bottom:16px;">Últimas noticias</h1>
+      <p style="font-size:1.05rem; color:#555; max-width:560px; margin:0 auto;">Todo lo que ocurre en la comunidad del Colegio Calasancio.</p>
+    </div>
+
+    <section style="background:#fff;">
+      <div class="filtros">
+        <button class="filtro-btn active" onclick="filterNoticias('todas', this)">Todas las noticias</button>
+        <button class="filtro-btn" onclick="filterNoticias('noticias', this)">Noticias</button>
+        <button class="filtro-btn" onclick="filterNoticias('actividades', this)">Actividades</button>
+        <button class="filtro-btn" onclick="filterNoticias('concursos', this)">Concursos</button>
+        <button class="filtro-btn" onclick="filterNoticias('eventos', this)">Eventos</button>
+        <button class="filtro-btn" onclick="filterNoticias('ventajas', this)">Ventajas</button>
+      </div>
+      <div class="actividades-grid" id="noticias-grid">
+        <div class="noticia-item" data-category="actividades">
+          <div class="noticia-img" style="background: linear-gradient(135deg, #8b1a1a 0%, #c9a84c 100%);">🥋</div>
+          <div class="noticia-body">
+            <div class="noticia-meta">
+              <span class="noticia-cat">Actividades</span>
+              <span class="noticia-fecha-small">16 Mar 2026</span>
+            </div>
+            <h3>Gran participación en los Juegos Municipales de Judo</h3>
+            <p>Nuestros alumnos volvieron a dar lo mejor de sí en los Juegos Municipales de Madrid. ¡Enhorabuena a todos!</p>
+            <a href="#">Leer más →</a>
+          </div>
+        </div>
+        <div class="noticia-item" data-category="eventos">
+          <div class="noticia-img" style="background: linear-gradient(135deg, var(--dorado) 0%, #a07830 100%);">🏫</div>
+          <div class="noticia-body">
+            <div class="noticia-meta">
+              <span class="noticia-cat">Eventos</span>
+              <span class="noticia-fecha-small">23 Feb 2026</span>
+            </div>
+            <h3>Jornada de Puertas Abiertas 2026</h3>
+            <p>La AMPA estuvo presente para recibir a las nuevas familias interesadas en el Colegio Calasancio.</p>
+            <a href="#">Leer más →</a>
+          </div>
+        </div>
+        <div class="noticia-item" data-category="actividades">
+          <div class="noticia-img" style="background: linear-gradient(135deg, #2c5f2e 0%, #52b655 100%);">♟️</div>
+          <div class="noticia-body">
+            <div class="noticia-meta">
+              <span class="noticia-cat">Actividades</span>
+              <span class="noticia-fecha-small">10 Ene 2026</span>
+            </div>
+            <h3>Torneo interno de Ajedrez Calasancio</h3>
+            <p>Los participantes del club de ajedrez disfrutaron de un torneo interno con premios para los tres primeros clasificados.</p>
+            <a href="#">Leer más →</a>
+          </div>
+        </div>
+        <div class="noticia-item" data-category="noticias">
+          <div class="noticia-img" style="background: linear-gradient(135deg, var(--dorado) 0%, var(--granate) 100%);">📋</div>
+          <div class="noticia-body">
+            <div class="noticia-meta">
+              <span class="noticia-cat">Noticias</span>
+              <span class="noticia-fecha-small">2 Sep 2025</span>
+            </div>
+            <h3>Bienvenida al curso 2025-2026</h3>
+            <p>La AMPA da la bienvenida al nuevo curso. Ya está abierto el plazo de inscripción de actividades extraescolares.</p>
+            <a href="#">Leer más →</a>
+          </div>
+        </div>
+        <div class="noticia-item" data-category="eventos">
+          <div class="noticia-img" style="background: linear-gradient(135deg, var(--granate) 0%, #c94c4c 100%);">⚽</div>
+          <div class="noticia-body">
+            <div class="noticia-meta">
+              <span class="noticia-cat">Eventos</span>
+              <span class="noticia-fecha-small">18 Sep 2025</span>
+            </div>
+            <h3>Fiesta Deportiva AMPA 2025</h3>
+            <p>Un año más, la Fiesta Deportiva reunió a toda la comunidad escolar en una jornada llena de deporte y convivencia.</p>
+            <a href="#">Leer más →</a>
+          </div>
+        </div>
+        <div class="noticia-item" data-category="eventos">
+          <div class="noticia-img" style="background: linear-gradient(135deg, #1a3a6b 0%, #4a7ab5 100%);">👕</div>
+          <div class="noticia-body">
+            <div class="noticia-meta">
+              <span class="noticia-cat">Eventos</span>
+              <span class="noticia-fecha-small">5 Jun 2025</span>
+            </div>
+            <h3>Mercadillo de Uniformes — Fin de curso</h3>
+            <p>Gran éxito en el mercadillo de uniformes de fin de curso. Gracias a todas las familias que participaron.</p>
+            <a href="#">Leer más →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /noticias -->
+
+
+  <!-- ══════════════════ EVENTOS ══════════════════ -->
+  <div id="eventos" class="page">
+
+    <div style="background: var(--dorado-bg); padding: 72px 5%; text-align:center; border-bottom: 1px solid var(--dorado-claro);">
+      <div class="hero-badge" style="margin:0 auto 20px;">Curso 2025-2026</div>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--granate); margin-bottom:16px;">Próximos eventos</h1>
+      <p style="font-size:1.05rem; color:#555; max-width:560px; margin:0 auto;">Calendario de actividades y eventos organizados por la AMPA Calasancio.</p>
+    </div>
+
+    <section style="background:#fff;">
+      <div class="actividades-grid">
+        <div class="evento">
+          <div class="evento-img" style="background: linear-gradient(135deg, #1a3a6b 0%, #4a7ab5 100%);">👕</div>
+          <div class="evento-body">
+            <div class="evento-fecha">Junio 2026</div>
+            <h3>Mercadillo de Uniformes — Fin de curso</h3>
+            <p>Venta de uniformes de segunda mano en buen estado. Trae los que ya no uses y cómpralos a precio reducido.</p>
+            <a href="#" class="btn-evento">Leer más</a>
+          </div>
+        </div>
+        <div class="evento">
+          <div class="evento-img" style="background: linear-gradient(135deg, #3a5a1a 0%, #7ab54a 100%);">👕</div>
+          <div class="evento-body">
+            <div class="evento-fecha">Septiembre 2026</div>
+            <h3>Mercadillo de Uniformes — Inicio de curso</h3>
+            <p>Segunda convocatoria del mercadillo para el inicio del próximo curso escolar.</p>
+            <a href="#" class="btn-evento">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /eventos -->
+
+
+  <!-- ══════════════════ CONTACTO ══════════════════ -->
+  <div id="contacto" class="page">
+
+    <div style="background: var(--dorado-bg); padding: 72px 5%; text-align:center; border-bottom: 1px solid var(--dorado-claro);">
+      <div class="hero-badge" style="margin:0 auto 20px;">Estamos aquí</div>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--granate); margin-bottom:16px;">Ponte en contacto</h1>
+      <p style="font-size:1.05rem; color:#555; max-width:560px; margin:0 auto;">Escríbenos con cualquier duda o sugerencia. Te respondemos en menos de 48 horas.</p>
+    </div>
+
+    <section style="background:#fff;">
+      <div class="contacto-grid">
+        <div>
+          <p class="section-label" style="text-align:left;">Envíanos un mensaje</p>
+          <h2 style="font-size:1.6rem; font-weight:800; color:var(--granate); margin-bottom:28px;">Formulario de contacto</h2>
+          <form onsubmit="return false;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px;">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" placeholder="Tu nombre">
+              </div>
+              <div class="form-group">
+                <label>Apellidos</label>
+                <input type="text" placeholder="Tus apellidos">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+              <label>Asunto</label>
+              <input type="text" placeholder="¿En qué te podemos ayudar?">
+            </div>
+            <div class="form-group">
+              <label>Mensaje</label>
+              <textarea placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="border:none; cursor:pointer; width:100%; font-size:1rem;">Enviar mensaje</button>
+          </form>
+        </div>
+        <div class="contacto-info">
+          <p class="section-label" style="text-align:left;">Dónde encontrarnos</p>
+          <h2 style="font-size:1.6rem; font-weight:800; color:var(--granate); margin-bottom:24px;">Datos de contacto</h2>
+          <div class="contacto-dato">
+            <span class="dato-icon">📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <span>Calle Conde de Peñalver, 51<br>28006 Madrid</span>
+            </div>
+          </div>
+          <div class="contacto-dato">
+            <span class="dato-icon">✉️</span>
+            <div>
+              <strong>Secretaría</strong>
+              <span>secretaria@ampacalasancio.com</span>
+            </div>
+          </div>
+          <div class="contacto-dato">
+            <span class="dato-icon">👤</span>
+            <div>
+              <strong>Presidencia</strong>
+              <span>presidencia@ampacalasancio.com</span>
+            </div>
+          </div>
+          <div class="contacto-dato">
+            <span class="dato-icon">💰</span>
+            <div>
+              <strong>Tesorería</strong>
+              <span>tesoreria@ampacalasancio.com</span>
+            </div>
+          </div>
+          <div>
+            <strong style="display:block; color:var(--granate); font-size:.88rem; margin-bottom:12px;">Síguenos en redes</strong>
+            <div style="display:flex; gap:14px; font-size:1.5rem;">
+              <a href="#" style="text-decoration:none;" title="Instagram">📸</a>
+              <a href="#" style="text-decoration:none;" title="Twitter/X">𝕏</a>
+              <a href="#" style="text-decoration:none;" title="WhatsApp">💬</a>
+              <a href="#" style="text-decoration:none;" title="Facebook">👥</a>
+            </div>
+          </div>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;">
+            <iframe
+              src="https://maps.google.com/maps?q=Calle+Conde+de+Pe%C3%B1alver+51+Madrid&output=embed"
+              width="100%" height="220" style="border:0; display:block;"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /contacto -->
+
+
+  <!-- ══════════════════ DOCUMENTOS ══════════════════ -->
+  <div id="documentos" class="page">
+
+    <div style="background: var(--granate); color:#fff; padding: 72px 5%; text-align:center;">
+      <div class="hero-badge" style="background:var(--dorado); color:#fff; margin:0 auto 20px;">Área de descargas</div>
+      <h1 style="font-size:2.4rem; font-weight:800; margin-bottom:16px;">Documentos</h1>
+      <p style="font-size:1.05rem; opacity:.85; max-width:600px; margin:0 auto;">Descarga los documentos, completa los datos y envíalos a <strong>secretaria@ampacalasancio.com</strong></p>
+    </div>
+
+    <section style="background: var(--gris-claro);">
+      <p class="section-label">Afiliación</p>
+      <h2 class="section-title">Formularios de alta</h2>
+      <p class="section-sub">Documentos necesarios para hacerte socio/a de la AMPA Calasancio.</p>
+      <div style="max-width:700px; margin:0 auto;">
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📄</span>
+          <div>
+            <strong>Formulario de afiliación</strong>
+            <span>Solicitud de alta como socio/a de la AMPA · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📄</span>
+          <div>
+            <strong>Autorización de domiciliación bancaria</strong>
+            <span>Formulario SEPA para el pago de la cuota anual · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📄</span>
+          <div>
+            <strong>Inscripción — Judo Calasancio</strong>
+            <span>Formulario de inscripción a la actividad extraescolar de judo · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📄</span>
+          <div>
+            <strong>Inscripción — Ajedrez Calasancio</strong>
+            <span>Formulario de inscripción a la actividad extraescolar de ajedrez · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+      </div>
+    </section>
+
+    <section style="background:#fff;">
+      <p class="section-label">Transparencia</p>
+      <h2 class="section-title">Estatutos y memorias</h2>
+      <p class="section-sub">Documentación oficial de la AMPA Calasancio.</p>
+      <div style="max-width:700px; margin:0 auto;">
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📜</span>
+          <div>
+            <strong>Estatutos de la AMPA Calasancio</strong>
+            <span>Reglamento interno de la asociación · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📊</span>
+          <div>
+            <strong>Memoria del curso 2023-2024</strong>
+            <span>Resumen de actividades y cuentas del curso · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+        <a href="#" class="doc-btn">
+          <span class="doc-icon">📊</span>
+          <div>
+            <strong>Memoria del curso 2022-2023</strong>
+            <span>Resumen de actividades y cuentas del curso · PDF</span>
+          </div>
+          <span class="doc-arrow">⬇️</span>
+        </a>
+      </div>
+    </section>
+
+    <section style="background: var(--dorado-bg); text-align:center; border-top: 1px solid var(--dorado-claro); padding:52px 5%;">
+      <p style="font-size:1rem; color:#555; margin-bottom:16px;">Una vez completados, envía los documentos a:</p>
+      <a href="mailto:secretaria@ampacalasancio.com" class="btn-primary" style="display:inline-block;">secretaria@ampacalasancio.com</a>
+      <p style="margin-top:20px; font-size:.9rem; color:var(--granate); font-weight:600;">¡Gracias por unirte a la AMPA Calasancio!</p>
+    </section>
+
+  </div><!-- /documentos -->
+
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-txt">AMPA Calasancio</span>
+        <p>Asociacion de Madres y Padres de Alumnos del Colegio Calasancio de Madrid. Fundada en 1977. Trabajamos para mejorar la educacion y el bienestar de nuestros hijos.</p>
+        <div style="display:flex; gap:12px; margin-top:16px; font-size:1.2rem;">
+          <a href="#" style="color:rgba(255,255,255,.6); text-decoration:none;">📸</a>
+          <a href="#" style="color:rgba(255,255,255,.6); text-decoration:none;">𝕏</a>
+          <a href="#" style="color:rgba(255,255,255,.6); text-decoration:none;">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4>La AMPA</h4>
+        <ul>
+          <li><a href="#">Quienes somos</a></li>
+          <li><a href="#">Junta directiva</a></li>
+          <li><a href="#">Estatutos</a></li>
+          <li><a href="#">Zona Socios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Participa</h4>
+        <ul>
+          <li><a href="#">Hazte socio/a</a></li>
+          <li><a href="#">Actividades</a></li>
+          <li><a href="#">Colabora con nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:secretaria@ampacalasancio.com">secretaria@ampacalasancio.com</a></li>
+          <li><a href="mailto:presidencia@ampacalasancio.com">presidencia@ampacalasancio.com</a></li>
+          <li><a href="mailto:tesoreria@ampacalasancio.com">tesoreria@ampacalasancio.com</a></li>
+          <li><a href="#">Formulario de contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal-datos">
+      <strong style="color:rgba(255,255,255,.7);">Datos legales:</strong>
+      AMPA Colegio Calasancio · Inscrita en el Registro de Asociaciones de la Comunidad de Madrid con el Num. 2346 ·
+      Domicilio: Calle Conde de Peñalver, 51, 28006 Madrid
+    </div>
+
+    <div class="footer-legal">
+      <span>© 2026 AMPA Calasancio. Todos los derechos reservados.</span>
+      <div>
+        <a href="#">Aviso legal</a>
+        <a href="#">Politica de privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showPage(id, btn) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (btn && btn.classList && btn.classList.contains('demo-tab')) {
+        btn.classList.add('active');
+      } else {
+        const tab = Array.from(document.querySelectorAll('.demo-tab')).find(t => (t.getAttribute('onclick') || '').includes("'" + id + "'"));
+        if (tab) tab.classList.add('active');
+      }
+      window.scrollTo({ top: 60, behavior: 'smooth' });
+    }
+    function filterNoticias(category, btn) {
+      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#noticias-grid .noticia-item').forEach(item => {
+        item.style.display = (category === 'todas' || item.dataset.category === category) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
